@@ -8,6 +8,7 @@ import ir.proprog.enrollassist.domain.program.Program;
 import ir.proprog.enrollassist.domain.section.ExamTime;
 import ir.proprog.enrollassist.domain.section.Section;
 import ir.proprog.enrollassist.domain.student.Student;
+import ir.proprog.enrollassist.domain.user.User;
 import ir.proprog.enrollassist.repository.*;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Component;
@@ -19,6 +20,7 @@ import java.util.List;
 @Component
 @AllArgsConstructor
 public class DataInitializer {
+    UserRepository userRepository;
     StudentRepository studentRepository;
     CourseRepository courseRepository;
     SectionRepository sectionRepository;
@@ -28,6 +30,10 @@ public class DataInitializer {
 
     @PostConstruct
     public void populateCourses() throws Exception {
+
+        User user = new User("Admin", "1");
+        userRepository.save(user);
+
         Course math1 = new Course("4444444", "MATH1", 3, "Undergraduate");
         Course phys1 = new Course("8888888", "PHYS1", 3, "Undergraduate");
         Course prog = new Course("7777777", "PROG", 4, "Undergraduate");

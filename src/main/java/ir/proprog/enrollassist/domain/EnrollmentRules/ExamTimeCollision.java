@@ -15,7 +15,7 @@ public class ExamTimeCollision extends EnrollmentRuleViolation {
 
     @Override
     public String toString() {
-        return String.format("%s is not passed as a prerequisite of %s", section1, section2);
+        return String.format("%s course and %s course have collision in exam time.", section1, section2);
     }
 
     @Override
